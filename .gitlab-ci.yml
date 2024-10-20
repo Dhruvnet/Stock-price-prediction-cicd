@@ -26,10 +26,9 @@ test:
 # Deploy Stage
 deploy:
   stage: deploy
-  image: python:3.8
+  image: node:16 # Use a suitable image for Vercel CLI
   script:
-    - echo "Deploying application..."
-    - scp -r * user@yourserver:/path/to/deploy
-    - ssh user@yourserver "cd /path/to/deploy && source env/bin/activate && python app.py"
+    - npm install -g vercel # Install Vercel CLI
+    - vercel --prod --token $kcdy1jjtfFdWt5bGOcfxZfv8 # Deploy to production
   only:
     - main

@@ -1,0 +1,5 @@
+flask==2.2.2         # A lightweight WSGI web application framework
+requests==2.28.1     # A simple HTTP library for Python
+numpy==1.23.5        # A library for numerical computations
+pandas==1.5.3        # A library for data manipulation and analysis
+pytest==7.2.0        # A testing framework
