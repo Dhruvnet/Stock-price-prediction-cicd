@@ -1,0 +1,35 @@
+stages:
+  - build
+  - test
+  - deploy
+
+# Build Stage
+build:
+  stage: build
+  image: python:3.8
+  script:
+    - python -m venv env
+    - source env/bin/activate
+    - pip install -r requirements.txt
+
+# Test Stage
+test:
+  stage: test
+  image: python:3.8
+  script:
+    - source env/bin/activate
+    - pytest
+  artifacts:
+    paths:
+      - coverage/
+
+# Deploy Stage
+deploy:
+  stage: deploy
+  image: python:3.8
+  script:
+    - echo "Deploying application..."
+    - scp -r * user@yourserver:/path/to/deploy
+    - ssh user@yourserver "cd /path/to/deploy && source env/bin/activate && python app.py"
+  only:
+    - main
