@@ -29,6 +29,6 @@ deploy:
   image: node:16 # Use a suitable image for Vercel CLI
   script:
     - npm install -g vercel # Install Vercel CLI
-    - vercel --prod --token $kcdy1jjtfFdWt5bGOcfxZfv8 # Deploy to production
+    - vercel --prod --token $your_tokey_key # Deploy to production
   only:
     - main
